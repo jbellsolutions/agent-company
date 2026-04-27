@@ -15,6 +15,12 @@ from __future__ import annotations
 
 import logging
 import os
+import sys
+from pathlib import Path
+
+# Add project root to sys.path so `orchestrator.*` and `company.*` resolve when
+# running this file directly (`python interfaces/slack_bot.py`).
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from dotenv import load_dotenv
 
