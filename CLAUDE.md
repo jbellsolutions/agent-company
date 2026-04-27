@@ -12,10 +12,14 @@
 ## Running Locally
 
 ```bash
-cp .env.example .env   # fill in keys first
-docker-compose up      # starts app + Postgres
-python interfaces/cli.py "set up SDR fleet"
+cp .env.example .env             # fill in keys first
+./setup.sh                       # pip install + create SQLite DB
+python interfaces/slack_bot.py   # Slack bot via Socket Mode
+# or:
+python interfaces/cli.py --interactive
 ```
+
+No Docker / no Postgres daemon. Local DB is `agentcompany.db` (SQLite, stdlib).
 
 ## Key Files
 

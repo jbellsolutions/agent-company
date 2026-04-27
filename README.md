@@ -38,10 +38,13 @@ git clone https://github.com/jbellsolutions/agent-company
 cd agent-company
 cp .env.example .env
 # Fill in your API keys in .env
-./setup.sh
+./setup.sh                          # installs pip deps + creates SQLite DB
+python interfaces/slack_bot.py      # connects to Slack via Socket Mode
 ```
 
 Then DM your Slack bot: `set up the SDR fleet for fintech companies 50-200 employees`
+
+**No Docker required.** Local DB is a single SQLite file (`agentcompany.db`).
 
 ## Example Flow
 
@@ -66,7 +69,7 @@ CEO → reports back to Slack: "20 emails sent. 3 replies flagged as hot."
 | `OPENROUTER_API_KEY` | openrouter.ai |
 | `COMPOSIO_API_KEY` | composio.dev |
 | `SLACK_BOT_TOKEN` | api.slack.com/apps |
-| `DATABASE_URL` | Railway auto-provides on deploy |
+| `DB_PATH` | Local file path (defaults to `./agentcompany.db`) |
 
 ## Fleets Available
 
@@ -76,16 +79,12 @@ CEO → reports back to Slack: "20 emails sent. 3 replies flagged as hot."
 
 ## Deployment
 
-Deploys to Railway with one command. Postgres included.
+**Local (default):** SQLite file. Just run `python interfaces/slack_bot.py` after `./setup.sh`.
+
+**Railway (24/7):** push the repo, Railway uses `infra/Dockerfile`. Mount a volume so the SQLite file persists between deploys, or swap `DB_PATH` for a hosted Postgres URL (Neon free tier works) and update `memory.py`'s connection layer.
 
 ```bash
-./setup.sh  # handles Railway login, Postgres provisioning, deploy
-```
-
-Or run locally:
-
-```bash
-docker-compose up  # spins up app + Postgres
+railway up   # one-shot deploy from this repo
 ```
 
 ## Repo Structure
