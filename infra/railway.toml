@@ -1,0 +1,18 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "python interfaces/slack_bot.py"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
+
+[[services]]
+name = "agent-company"
+
+[[services.envs]]
+name = "PYTHONPATH"
+value = "/app"
+
+[[services.envs]]
+name = "PYTHONUNBUFFERED"
+value = "1"
