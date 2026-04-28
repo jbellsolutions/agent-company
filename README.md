@@ -213,6 +213,7 @@ INFO:slack_bolt.App:⚡️ Bolt app is running!
 ```
 
 ### 5. DM your bot
+
 Open Slack → find your bot in DMs → message it:
 
 ```
@@ -228,6 +229,9 @@ Top 20 leads, personalized intros.
 ```
 
 The bot routes the request, the CEO breaks it down, workers execute, results come back.
+
+→ **Full first-day walkthrough**: [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)
+→ **Day-to-day workflows**: [docs/PLAYBOOK.md](docs/PLAYBOOK.md)
 
 ---
 
@@ -367,10 +371,17 @@ Standard Python deploy. The repo has no Docker requirement; clone, pip install, 
 
 ## Documentation
 
-- **[Slack App Setup](docs/SLACK_SETUP.md)** — step-by-step app creation, scopes, tokens
-- **[Architecture Deep Dive](docs/ARCHITECTURE.md)** — how the tiers communicate
-- **[Adding New Fleets](docs/ADDING_FLEETS.md)** — extending with custom teams
-- **[Composio Integration](docs/COMPOSIO.md)** — wiring tools to workers
+**Start here**:
+- 🚀 **[Getting Started](docs/GETTING_STARTED.md)** — your first 30 minutes: bot alive → first campaign sent
+- 📘 **[Operator Playbook](docs/PLAYBOOK.md)** — day-to-day workflows, copy-paste prompts, multi-company tips
+
+**Reference**:
+- 🔧 **[Slack App Setup](docs/SLACK_SETUP.md)** — step-by-step app creation, scopes, tokens
+- 🏗 **[Architecture Deep Dive](docs/ARCHITECTURE.md)** — how the tiers communicate
+- 🔌 **[Composio Integration](docs/COMPOSIO.md)** — wiring tools to workers
+- ➕ **[Adding New Fleets](docs/ADDING_FLEETS.md)** — extending with custom teams
+- 🔍 **[Inspecting & Debugging](docs/INSPECTING.md)** — DB queries, debugging recipes
+- ⏰ **[Running 24/7](docs/RUNNING_24_7.md)** — launchd, systemd, Railway deployment
 
 ---
 
